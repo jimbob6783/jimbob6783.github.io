@@ -539,6 +539,112 @@
             background: #444bff;
         }
 
+        /* Resume PIN modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 380px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .modal-subtitle {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .modal-error {
+            min-height: 1.2rem;
+            font-size: 0.85rem;
+            color: #dc3545;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        .modal-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .modal-btn.primary {
+            background: #667eea;
+            color: #fff;
+        }
+
+        .modal-btn.primary:hover {
+            background: #5563d3;
+        }
+
+        .modal-btn.secondary {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .modal-btn.secondary:hover {
+            background: #dde1e5;
+        }
+
+        body.dark .modal-content {
+            background: #1f1f1f;
+            color: #f1f1f1;
+        }
+
+        body.dark .modal-subtitle {
+            color: #aaaaaa;
+        }
+
+        body.dark .modal-content input {
+            background: #2a2a2a;
+            border-color: #444;
+            color: #f1f1f1;
+        }
+
+        body.dark .modal-btn.secondary {
+            background: #2b2b2b;
+            color: #f1f1f1;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -607,8 +713,7 @@
         <p>Full Stack Developer · Veteran · Transmission Builder Turned Engineer</p>
         <div class="hero-actions">
             <a href="#contact" class="btn">Get In Touch</a>
-            <!-- Update resume.pdf to your real file name if different -->
-            <a href="resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Download Résumé</a>
+            <a href="#" class="btn btn-secondary" id="resumeBtn">View Résumé</a>
         </div>
     </section>
 
@@ -851,7 +956,6 @@
             <h2>Let's Connect</h2>
             <p>I'm always interested in hearing about new projects, roles, and collaborations.</p>
             <div class="contact-links">
-                <!-- Update these with your real info -->
                 <a href="mailto:bridges.dev3@gmail.com">Email</a>
                 <a href="https://github.com/Chrisbridges3" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/christopherbridges3" target="_blank">LinkedIn</a>
@@ -872,6 +976,24 @@
             </form>
         </div>
     </section>
+
+    <!-- Resume PIN Modal -->
+    <div id="resumeModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <h3>Enter PIN to View Résumé</h3>
+            <p class="modal-subtitle">This helps limit access to my full résumé. If you need it and don’t have the PIN, feel free to email me.</p>
+
+            <label for="resumePinInput">PIN</label>
+            <input type="password" id="resumePinInput" autocomplete="off" />
+
+            <div id="resumePinError" class="modal-error"></div>
+
+            <div class="modal-actions">
+                <button id="resumeCancelBtn" type="button" class="modal-btn secondary">Cancel</button>
+                <button id="resumeSubmitBtn" type="button" class="modal-btn primary">Submit</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scroll-to-top button -->
     <button id="scrollTopBtn" aria-label="Scroll to top">↑ Top</button>
@@ -963,6 +1085,76 @@
         const yearSpan = document.getElementById('yearSpan');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Resume PIN modal logic
+        const RESUME_PIN = '1234';          // <-- change this
+        const RESUME_URL = 'resume.pdf';    // <-- make sure this matches your file path
+
+        const resumeBtn = document.getElementById('resumeBtn');
+        const resumeModal = document.getElementById('resumeModal');
+        const resumePinInput = document.getElementById('resumePinInput');
+        const resumePinError = document.getElementById('resumePinError');
+        const resumeCancelBtn = document.getElementById('resumeCancelBtn');
+        const resumeSubmitBtn = document.getElementById('resumeSubmitBtn');
+
+        function openResumeModal() {
+            if (!resumeModal) return;
+            resumeModal.style.display = 'flex';
+            resumeModal.setAttribute('aria-hidden', 'false');
+            resumePinInput.value = '';
+            resumePinError.textContent = '';
+            setTimeout(() => resumePinInput.focus(), 50);
+        }
+
+        function closeResumeModal() {
+            if (!resumeModal) return;
+            resumeModal.style.display = 'none';
+            resumeModal.setAttribute('aria-hidden', 'true');
+        }
+
+        if (resumeBtn && resumeModal) {
+            resumeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openResumeModal();
+            });
+
+            resumeCancelBtn.addEventListener('click', () => {
+                closeResumeModal();
+            });
+
+            resumeSubmitBtn.addEventListener('click', () => {
+                const entered = resumePinInput.value.trim();
+                if (entered === RESUME_PIN) {
+                    window.location.href = RESUME_URL;
+                    closeResumeModal();
+                } else {
+                    resumePinError.textContent = 'Incorrect PIN. Please try again.';
+                }
+            });
+
+            // Enter key submits, Escape closes
+            resumePinInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    resumeSubmitBtn.click();
+                } else if (e.key === 'Escape') {
+                    closeResumeModal();
+                }
+            });
+
+            // Click outside modal to close
+            resumeModal.addEventListener('click', (e) => {
+                if (e.target === resumeModal) {
+                    closeResumeModal();
+                }
+            });
+
+            // Global Escape closes modal
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && resumeModal.style.display === 'flex') {
+                    closeResumeModal();
+                }
+            });
         }
     </script>
 </body>
