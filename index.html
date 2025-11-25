@@ -304,6 +304,34 @@
             border-bottom: none;
         }
 
+        /* Currently learning strip */
+        .learning-wrapper {
+            margin-top: 1rem;
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .learning-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .learning-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .learning-tag {
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            border: 1px dashed #667eea;
+            font-size: 0.85rem;
+        }
+
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -448,6 +476,27 @@
             background: #5563d3;
         }
 
+        /* Footer */
+        footer {
+            padding: 1.5rem 1rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-links {
+            margin-bottom: 0.4rem;
+        }
+
         /* Dark mode styles */
         body.dark {
             background: #121212;
@@ -462,7 +511,8 @@
         body.dark .skill-category,
         body.dark .experience-item,
         body.dark .contact-section,
-        body.dark .about-card {
+        body.dark .about-card,
+        body.dark .learning-wrapper {
             background: #1f1f1f;
             color: #f1f1f1;
             box-shadow: 0 4px 6px rgba(0,0,0,0.6);
@@ -478,9 +528,11 @@
         }
 
         body.dark .tag,
-        body.dark .about-tag {
+        body.dark .about-tag,
+        body.dark .learning-tag {
             background: #2b2b2b;
             color: #e0e0e0;
+            border-color: #888;
         }
 
         body.dark #scrollTopBtn {
@@ -541,6 +593,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#learning">Learning</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -565,9 +618,9 @@
             <div class="about-text">
                 <p>
                     I'm a full stack developer and computer science student with a non-traditional background:
-                    years of hands-on work as an automotive transmission technician, U.S. Army service as a
-                    wheeled vehicle mechanic and motor transport operator, and now a deep focus on software
-                    engineering and security. :contentReference[oaicite:1]{index=1}
+                    years of hands-on work as an automotive transmission technician, U.S. Army service as a wheeled
+                    vehicle mechanic and motor transport operator, and now a deep focus on software engineering
+                    and security.
                 </p>
                 <p>
                     That mix means I care a lot about tools that work in the real world. I’ve spent time diagnosing
@@ -615,13 +668,13 @@
                     with a strong focus on security and reliability.
                 </p>
                 <div class="about-tags">
-                    <span class="about-tag">Node.js & Express</span>
-                    <span class="about-tag">Python & Dash</span>
+                    <span class="about-tag">Node.js &amp; Express</span>
+                    <span class="about-tag">Python &amp; Dash</span>
                     <span class="about-tag">MongoDB</span>
                     <span class="about-tag">Android (SQLite)</span>
                     <span class="about-tag">macOS / Swift</span>
                     <span class="about-tag">Raspberry Pi</span>
-                    <span class="about-tag">Security & Reverse Engineering</span>
+                    <span class="about-tag">Security &amp; Reverse Engineering</span>
                     <span class="about-tag">Transmissions By Shane</span>
                     <span class="about-tag">U.S. Army Veteran</span>
                 </div>
@@ -646,8 +699,7 @@
                     <span class="tag">Data Visualization</span>
                 </div>
                 <div class="project-links">
-                    <a class="project-btn" href="https://example.com/grazioso-dashboard" target="_blank">Live Demo</a>
-                    <a class="project-btn" href="https://github.com/Chrisbridges3" target="_blank">GitHub Repo</a>
+                    <a class="project-btn" href="https://github.com/christopherbridges1/CS340-Mod-8" target="_blank">View on GitHub</a>
                 </div>
             </div>
 
@@ -665,8 +717,7 @@
                     <span class="tag">Handlebars</span>
                 </div>
                 <div class="project-links">
-                    <a class="project-btn" href="https://example.com/travlr-getaways" target="_blank">Live Demo</a>
-                    <a class="project-btn" href="https://github.com/Chrisbridges3" target="_blank">GitHub Repo</a>
+                    <a class="project-btn" href="https://github.com/christopherbridges1/CS465" target="_blank">View on GitHub</a>
                 </div>
             </div>
 
@@ -684,8 +735,7 @@
                     <span class="tag">Xcode</span>
                 </div>
                 <div class="project-links">
-                    <a class="project-btn" href="https://example.com/systraceapp" target="_blank">Live Demo</a>
-                    <a class="project-btn" href="https://github.com/Chrisbridges3" target="_blank">GitHub Repo</a>
+                    <a class="project-btn" href="https://github.com/jimbob6783/SysTraceApp" target="_blank">View on GitHub</a>
                 </div>
             </div>
         </div>
@@ -695,16 +745,16 @@
         <h2>Technical Skills</h2>
         <div class="skills-container">
             <div class="skill-category">
-                <h3>Languages & Frontend</h3>
+                <h3>Languages &amp; Frontend</h3>
                 <ul class="skill-list">
                     <li>JavaScript / TypeScript</li>
                     <li>HTML5 / CSS3 / Responsive Design</li>
-                    <li>React & basic Vue.js</li>
+                    <li>React &amp; basic Vue.js</li>
                     <li>Swift (macOS) · OpenGL (C++)</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Backend & Data</h3>
+                <h3>Backend &amp; Data</h3>
                 <ul class="skill-list">
                     <li>Node.js / Express</li>
                     <li>Python (APIs, Dash, scripting)</li>
@@ -713,13 +763,29 @@
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Platforms & Focus Areas</h3>
+                <h3>Platforms &amp; Focus Areas</h3>
                 <ul class="skill-list">
                     <li>Android app development (SQLite storage)</li>
-                    <li>Raspberry Pi & embedded systems</li>
-                    <li>Security, ethical hacking & reverse engineering</li>
+                    <li>Raspberry Pi &amp; embedded systems</li>
+                    <li>Security, ethical hacking &amp; reverse engineering</li>
                     <li>Git / GitHub · CI-friendly workflows</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="learning">
+        <h2>Currently Learning</h2>
+        <div class="learning-wrapper">
+            <div class="learning-label">What I’m actively leveling up on:</div>
+            <div class="learning-tags">
+                <span class="learning-tag">Advanced backend patterns</span>
+                <span class="learning-tag">System design</span>
+                <span class="learning-tag">Digital content creation</span>
+                <span class="learning-tag">Security &amp; secure coding</span>
+                <span class="learning-tag">Docker &amp; containerization</span>
+                <span class="learning-tag">Cloud deployment workflows</span>
+                <span class="learning-tag">Android app polish &amp; UX</span>
             </div>
         </div>
     </section>
@@ -733,17 +799,17 @@
                 <p>
                     Diagnose and repair automatic transmissions and transfer cases, primarily on the bench.
                     Clean, inspect, and rebuild modern and classic transaxle and rear-wheel-drive units
-                    (including 350 turbo, C-4, and more), ensuring reliability before reinstallation. :contentReference[oaicite:2]{index=2}
+                    (including 350 turbo, C-4, and more), ensuring reliability before reinstallation.
                 </p>
             </div>
 
             <div class="experience-item">
                 <h3>Wheeled Vehicle Mechanic / Motor Transport Operator – U.S. Army</h3>
-                <div class="experience-date">February 2007 – September 2013 · Ft. Sill, Oklahoma</div>
+                <div class="experience-date">February 2007 – September 2012 · Ft. Sill, Oklahoma</div>
                 <p>
                     Maintained and repaired wheeled vehicles and supported motor transport operations in
                     high-responsibility environments. Developed strong troubleshooting skills, attention to
-                    procedure, and the ability to keep critical equipment operational under pressure. :contentReference[oaicite:3]{index=3}
+                    procedure, and the ability to keep critical equipment operational under pressure.
                 </p>
             </div>
 
@@ -753,7 +819,7 @@
                 <p>
                     Read engineered blueprints and fabricated handrails to spec, later moving to the paint
                     shop to oversee priming, painting, and preparing materials for shipment. Gained
-                    experience in precision fabrication, quality control, and logistics. :contentReference[oaicite:4]{index=4}
+                    experience in precision fabrication, quality control, and logistics.
                 </p>
             </div>
 
@@ -764,12 +830,12 @@
                     BS in Computer Science with a concentration in Software Engineering. Built end-to-end
                     projects across web, mobile, systems, and data: Android weight-tracking app, MongoDB-backed
                     dashboards, embedded Raspberry Pi labs, OpenGL graphics assignments, and reinforcement
-                    learning experiments using TensorFlow. :contentReference[oaicite:5]{index=5}
+                    learning experiments using TensorFlow.
                 </p>
             </div>
 
             <div class="experience-item">
-                <h3>Security & Reverse Engineering Enthusiast</h3>
+                <h3>Security &amp; Reverse Engineering Enthusiast</h3>
                 <div class="experience-date">Ongoing</div>
                 <p>
                     Self-directed work in ethical hacking, memory inspection tools, reverse engineering, and
@@ -786,10 +852,10 @@
             <p>I'm always interested in hearing about new projects, roles, and collaborations.</p>
             <div class="contact-links">
                 <!-- Update these with your real info -->
-                <a href="mailto: bridges.dev3@gmail.com">Email</a>
-                <a href="https://github.com/christopherbridges1" target="_blank">GitHub</a>
+                <a href="mailto:bridges.dev3@gmail.com">Email</a>
+                <a href="https://github.com/Chrisbridges3" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/christopherbridges3" target="_blank">LinkedIn</a>
-               <a href="https://www.tiktok.com/@vyrdentech" target="_blank">TikTok</a>
+                <a href="https://www.tiktok.com/@yourtiktokhandle" target="_blank">TikTok</a>
             </div>
 
             <form class="contact-form" action="mailto:bridges.dev3@gmail.com" method="POST" enctype="text/plain">
@@ -809,6 +875,17 @@
 
     <!-- Scroll-to-top button -->
     <button id="scrollTopBtn" aria-label="Scroll to top">↑ Top</button>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a> ·
+            <a href="#projects">Projects</a> ·
+            <a href="#skills">Skills</a> ·
+            <a href="#experience">Experience</a> ·
+            <a href="#contact">Contact</a>
+        </div>
+        <div>© <span id="yearSpan"></span> Chris Bridges · Last updated 11-24-2025 in VS Code & GitHub</div>
+    </footer>
 
     <script>
         // Smooth scrolling
@@ -881,6 +958,12 @@
                 behavior: 'smooth'
             });
         });
+
+        // Footer year
+        const yearSpan = document.getElementById('yearSpan');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
     </script>
 </body>
 </html>
