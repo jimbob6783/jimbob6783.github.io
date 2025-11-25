@@ -38,7 +38,7 @@
         nav a {
             color: #333;
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             transition: color 0.3s, border-bottom-color 0.3s;
             font-weight: 500;
             border-bottom: 2px solid transparent;
@@ -105,6 +105,69 @@
             margin-bottom: 2rem;
             text-align: center;
             color: #333;
+        }
+
+        /* About section */
+        .about-content {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-highlight-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .about-highlight-list li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .about-highlight-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .about-card h3 {
+            color: #667eea;
+            margin-bottom: 0.75rem;
+        }
+
+        .about-meta {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .about-tag {
+            background: #e9ecef;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
         }
 
         .projects-grid {
@@ -340,7 +403,8 @@
         body.dark .project-card,
         body.dark .skill-category,
         body.dark .experience-item,
-        body.dark .contact-section {
+        body.dark .contact-section,
+        body.dark .about-card {
             background: #1f1f1f;
             color: #f1f1f1;
             box-shadow: 0 4px 6px rgba(0,0,0,0.6);
@@ -355,6 +419,12 @@
             border-color: #555;
         }
 
+        body.dark .tag,
+        body.dark .about-tag {
+            background: #2b2b2b;
+            color: #e0e0e0;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -363,6 +433,12 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .about-content {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -400,6 +476,7 @@
     <nav>
         <ul>
             <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -412,50 +489,119 @@
 
     <section id="home" class="hero">
         <h1>Chris Bridges</h1>
-        <p>Full Stack Developer | Problem Solver | Tech Enthusiast</p>
+        <p>Full Stack Developer · Security-Minded Engineer · Problem Solver</p>
         <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I'm a full stack developer and computer science student based in the U.S., with a strong focus on
+                    backend engineering, security, and building practical tools that actually ship. I enjoy working
+                    across the stack—from database design and APIs to front-end experiences that feel clean and fast.
+                </p>
+                <p>
+                    Over the last few years, I've built projects ranging from full-stack dashboards on MongoDB and Dash,
+                    to Android apps, Raspberry Pi and embedded systems labs, and macOS utilities written in Swift.
+                    I’m comfortable jumping between web, mobile, and systems work, and I care a lot about clean,
+                    maintainable code.
+                </p>
+                <p>
+                    I also have a background in ethical hacking and penetration testing, which heavily influences how I
+                    approach development: secure by default, privacy-aware, and curious about how things work under the hood.
+                    That curiosity has led me into reverse engineering, OpenGL graphics, reinforcement learning experiments,
+                    and more than a few “let’s see what happens if…” side projects.
+                </p>
+
+                <h3 style="margin-top:1.5rem; color:#667eea;">What I'm focused on right now</h3>
+                <ul class="about-highlight-list">
+                    <li>Leveling up toward a Senior Backend Engineer path with a strong security mindset.</li>
+                    <li>Building full-stack apps using Node.js, Python, MongoDB, and cloud platforms.</li>
+                    <li>Exploring AI and automation to create useful tools (not just tech demos).</li>
+                    <li>Continuing to refine clean architecture, testing, and documentation habits.</li>
+                </ul>
+            </div>
+            <div class="about-card">
+                <h3>Snapshot</h3>
+                <div class="about-meta">
+                    Full Stack Developer · CS Degree (in progress) · Security & Reverse Engineering Enthusiast
+                </div>
+                <p>
+                    I like solving messy, real-world problems: old legacy systems that need love, dashboards for
+                    non-technical users, and small tools that make workflows less painful.
+                </p>
+                <div class="about-tags">
+                    <span class="about-tag">Node.js & Express</span>
+                    <span class="about-tag">Python & Dash</span>
+                    <span class="about-tag">MongoDB</span>
+                    <span class="about-tag">Android (SQLite)</span>
+                    <span class="about-tag">macOS / Swift</span>
+                    <span class="about-tag">Raspberry Pi</span>
+                    <span class="about-tag">Security & Reverse Engineering</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
         <h2>Featured Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>Project One</h3>
-                <p>A full-stack web application that helps users manage their daily tasks with an intuitive interface and real-time updates.</p>
+                <h3>Grazioso Salvare Rescue Dog Dashboard</h3>
+                <p>
+                    A data-driven dashboard built for a fictitious consulting client to help identify ideal rescue dog
+                    candidates. Uses MongoDB queries, interactive Dash DataTables, and geolocation mapping so users can
+                    filter, visualize, and explore animals in real time.
+                </p>
                 <div class="project-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">MongoDB</span>
-                </div>
-                <div class="project-links">
-                    <a class="project-btn" href="https://example.com/project-one" target="_blank">Live Demo</a>
-                    <a class="project-btn" href="https://github.com/yourusername/project-one" target="_blank">GitHub</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>An e-commerce platform with secure payment integration, inventory management, and analytics dashboard.</p>
-                <div class="project-tags">
-                    <span class="tag">Vue.js</span>
                     <span class="tag">Python</span>
-                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Dash</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Data Visualization</span>
                 </div>
                 <div class="project-links">
-                    <a class="project-btn" href="https://example.com/project-two" target="_blank">Live Demo</a>
-                    <a class="project-btn" href="https://github.com/yourusername/project-two" target="_blank">GitHub</a>
+                    <a class="project-btn" href="https://example.com/grazioso-dashboard" target="_blank">Live Demo</a>
+                    <a class="project-btn" href="https://github.com/Chrisbridges3" target="_blank">GitHub Repo</a>
                 </div>
             </div>
+
             <div class="project-card">
-                <h3>Project Three</h3>
-                <p>Mobile-first progressive web app for fitness tracking with social features and gamification elements.</p>
+                <h3>Travlr Getaways Full Stack Travel Site</h3>
+                <p>
+                    A full stack travel booking experience using the MEAN stack patterns. Includes an admin view for
+                    managing trips and a public-facing site with server-rendered pages, dynamic content, and a clean
+                    responsive layout designed for both desktop and mobile travelers.
+                </p>
                 <div class="project-tags">
-                    <span class="tag">React Native</span>
-                    <span class="tag">Firebase</span>
-                    <span class="tag">Redux</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Handlebars</span>
                 </div>
                 <div class="project-links">
-                    <a class="project-btn" href="https://example.com/project-three" target="_blank">Live Demo</a>
-                    <a class="project-btn" href="https://github.com/yourusername/project-three" target="_blank">GitHub</a>
+                    <a class="project-btn" href="https://example.com/travlr-getaways" target="_blank">Live Demo</a>
+                    <a class="project-btn" href="https://github.com/Chrisbridges3" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>SysTraceApp – macOS Log Tracing Utility</h3>
+                <p>
+                    A macOS app built in Xcode and Swift that explores system logging and tracing. Focused on permissions,
+                    async log retrieval, and building a clean UI for inspecting OSLog entries—blending systems-level
+                    curiosity with practical tooling.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Swift</span>
+                    <span class="tag">macOS</span>
+                    <span class="tag">OSLog</span>
+                    <span class="tag">Xcode</span>
+                </div>
+                <div class="project-links">
+                    <a class="project-btn" href="https://example.com/systraceapp" target="_blank">Live Demo</a>
+                    <a class="project-btn" href="https://github.com/Chrisbridges3" target="_blank">GitHub Repo</a>
                 </div>
             </div>
         </div>
@@ -465,30 +611,30 @@
         <h2>Technical Skills</h2>
         <div class="skills-container">
             <div class="skill-category">
-                <h3>Frontend</h3>
+                <h3>Languages & Frontend</h3>
                 <ul class="skill-list">
-                    <li>React / Vue.js</li>
-                    <li>HTML5 / CSS3</li>
                     <li>JavaScript / TypeScript</li>
-                    <li>Responsive Design</li>
+                    <li>HTML5 / CSS3 / Responsive Design</li>
+                    <li>React & basic Vue.js</li>
+                    <li>Swift (macOS) · OpenGL (C++)</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Backend</h3>
+                <h3>Backend & Data</h3>
                 <ul class="skill-list">
                     <li>Node.js / Express</li>
-                    <li>Python / Django</li>
-                    <li>RESTful APIs</li>
-                    <li>GraphQL</li>
+                    <li>Python (APIs, Dash, scripting)</li>
+                    <li>MongoDB / PostgreSQL / SQLite</li>
+                    <li>RESTful APIs · basic GraphQL</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Database & Tools</h3>
+                <h3>Platforms & Focus Areas</h3>
                 <ul class="skill-list">
-                    <li>MongoDB / PostgreSQL</li>
-                    <li>Git / GitHub</li>
-                    <li>Docker</li>
-                    <li>AWS / Cloud Services</li>
+                    <li>Android app development (SQLite storage)</li>
+                    <li>Raspberry Pi & embedded systems</li>
+                    <li>Security, ethical hacking & reverse engineering</li>
+                    <li>Git / GitHub · CI-friendly workflows</li>
                 </ul>
             </div>
         </div>
@@ -498,19 +644,30 @@
         <h2>Experience</h2>
         <div class="experience-timeline">
             <div class="experience-item">
-                <h3>Senior Developer</h3>
-                <div class="experience-date">2022 - Present</div>
-                <p>Lead development of customer-facing web applications. Mentored junior developers and implemented best practices for code quality and testing.</p>
+                <h3>Full Stack Student Developer – Capstone & Client Projects</h3>
+                <div class="experience-date">2024 – Present</div>
+                <p>
+                    Lead developer on multiple academic and client-style projects, including a rescue dog analytics dashboard
+                    and a full-stack travel booking site. Responsible for requirements, data modeling, backend APIs,
+                    and front-end integration.
+                </p>
             </div>
             <div class="experience-item">
-                <h3>Full Stack Developer</h3>
-                <div class="experience-date">2020 - 2022</div>
-                <p>Built and maintained multiple web applications using modern frameworks. Collaborated with design and product teams to deliver user-centered solutions.</p>
+                <h3>Security & Reverse Engineering Enthusiast</h3>
+                <div class="experience-date">Ongoing</div>
+                <p>
+                    Self-directed work in ethical hacking, memory inspection tools, and reverse engineering workflows.
+                    This perspective drives a “defensive by design” approach to both code and architecture.
+                </p>
             </div>
             <div class="experience-item">
-                <h3>Junior Developer</h3>
-                <div class="experience-date">2018 - 2020</div>
-                <p>Developed features for internal tools and customer applications. Gained experience in full-stack development and agile methodologies.</p>
+                <h3>Computer Science Degree – Project Work</h3>
+                <div class="experience-date">Recent Years</div>
+                <p>
+                    Built end-to-end projects across web, mobile, systems, and data: Android weight-tracking app,
+                    MongoDB-backed dashboards, embedded Raspberry Pi labs, OpenGL graphics assignments, and reinforcement
+                    learning experiments using TensorFlow.
+                </p>
             </div>
         </div>
     </section>
@@ -518,10 +675,10 @@
     <section id="contact">
         <div class="contact-section">
             <h2>Let's Connect</h2>
-            <p>I'm always interested in hearing about new projects and opportunities.</p>
+            <p>I'm always interested in hearing about new projects, roles, and collaborations.</p>
             <div class="contact-links">
                 <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://github.com/Chrisbridges3" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/christopherbridges3" target="_blank">LinkedIn</a>
                 <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
             </div>
@@ -534,7 +691,7 @@
                 <input id="email" name="email" type="email" placeholder="you@example.com" required>
 
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+                <textarea id="message" name="message" placeholder="Tell me about your project, role, or question..." required></textarea>
 
                 <button type="submit">Send Message</button>
             </form>
@@ -563,7 +720,6 @@
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
