@@ -39,12 +39,19 @@
             color: #333;
             text-decoration: none;
             padding: 0.5rem 1.5rem;
-            transition: color 0.3s;
+            transition: color 0.3s, border-bottom-color 0.3s;
             font-weight: 500;
+            border-bottom: 2px solid transparent;
         }
 
         nav a:hover {
             color: #007bff;
+        }
+
+        nav a.active {
+            color: #007bff;
+            font-weight: 600;
+            border-bottom-color: #007bff;
         }
 
         section {
@@ -138,6 +145,31 @@
             border-radius: 20px;
             font-size: 0.85rem;
             color: #495057;
+        }
+
+        .project-links {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #667eea;
+            color: #667eea;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .project-btn:hover {
+            background: #667eea;
+            color: #fff;
+            transform: translateY(-1px);
         }
 
         .skills-container {
@@ -238,6 +270,91 @@
             color: #764ba2;
         }
 
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 0.8rem 1.6rem;
+            border-radius: 999px;
+            border: none;
+            background: #667eea;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .contact-form button:hover {
+            background: #5563d3;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 1.5rem;
+            top: 0.9rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Dark mode styles */
+        body.dark {
+            background: #121212;
+            color: #f1f1f1;
+        }
+
+        body.dark nav {
+            background: rgba(18, 18, 18, 0.95);
+        }
+
+        body.dark .project-card,
+        body.dark .skill-category,
+        body.dark .experience-item,
+        body.dark .contact-section {
+            background: #1f1f1f;
+            color: #f1f1f1;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+        }
+
+        body.dark h2,
+        body.dark h3 {
+            color: #e0e0ff;
+        }
+
+        body.dark .theme-toggle {
+            border-color: #555;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -265,18 +382,32 @@
             nav ul {
                 flex-wrap: wrap;
             }
+
+            .theme-toggle {
+                position: static;
+                margin: 0.5rem auto 0.8rem;
+                display: inline-block;
+            }
+
+            nav {
+                text-align: center;
+                padding-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="theme-toggle" id="themeToggle">
+            🌙 Dark
+        </div>
     </nav>
 
     <section id="home" class="hero">
@@ -296,6 +427,10 @@
                     <span class="tag">Node.js</span>
                     <span class="tag">MongoDB</span>
                 </div>
+                <div class="project-links">
+                    <a class="project-btn" href="https://example.com/project-one" target="_blank">Live Demo</a>
+                    <a class="project-btn" href="https://github.com/yourusername/project-one" target="_blank">GitHub</a>
+                </div>
             </div>
             <div class="project-card">
                 <h3>Project Two</h3>
@@ -305,6 +440,10 @@
                     <span class="tag">Python</span>
                     <span class="tag">PostgreSQL</span>
                 </div>
+                <div class="project-links">
+                    <a class="project-btn" href="https://example.com/project-two" target="_blank">Live Demo</a>
+                    <a class="project-btn" href="https://github.com/yourusername/project-two" target="_blank">GitHub</a>
+                </div>
             </div>
             <div class="project-card">
                 <h3>Project Three</h3>
@@ -313,6 +452,10 @@
                     <span class="tag">React Native</span>
                     <span class="tag">Firebase</span>
                     <span class="tag">Redux</span>
+                </div>
+                <div class="project-links">
+                    <a class="project-btn" href="https://example.com/project-three" target="_blank">Live Demo</a>
+                    <a class="project-btn" href="https://github.com/yourusername/project-three" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
@@ -382,6 +525,19 @@
                 <a href="https://linkedin.com/in/christopherbridges3" target="_blank">LinkedIn</a>
                 <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
             </div>
+
+            <form class="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -404,7 +560,7 @@
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section');
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -420,6 +576,25 @@
                 }
             });
         });
+
+        // Dark mode toggle with localStorage
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark');
+            if (themeToggle) themeToggle.textContent = '☀️ Light';
+        }
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                themeToggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
     </script>
 </body>
 </html>
