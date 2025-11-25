@@ -83,6 +83,13 @@
             animation: fadeInUp 1s ease 0.2s backwards;
         }
 
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
@@ -91,13 +98,25 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
             animation: fadeInUp 1s ease 0.4s backwards;
         }
 
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
 
         h2 {
@@ -168,6 +187,24 @@
             padding: 0.25rem 0.8rem;
             border-radius: 999px;
             font-size: 0.8rem;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .about-stat {
+            min-width: 120px;
+        }
+
+        .about-stat strong {
+            display: block;
+            font-size: 1.2rem;
+            color: #667eea;
         }
 
         .projects-grid {
@@ -390,6 +427,27 @@
             user-select: none;
         }
 
+        /* Scroll-to-top button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            border: none;
+            background: #667eea;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            display: none;
+            z-index: 999;
+        }
+
+        #scrollTopBtn:hover {
+            background: #5563d3;
+        }
+
         /* Dark mode styles */
         body.dark {
             background: #121212;
@@ -423,6 +481,10 @@
         body.dark .about-tag {
             background: #2b2b2b;
             color: #e0e0e0;
+        }
+
+        body.dark #scrollTopBtn {
+            background: #444bff;
         }
 
         @keyframes fadeInUp {
@@ -489,8 +551,12 @@
 
     <section id="home" class="hero">
         <h1>Chris Bridges</h1>
-        <p>Full Stack Developer · Security-Minded Engineer · Problem Solver</p>
-        <a href="#contact" class="btn">Get In Touch</a>
+        <p>Full Stack Developer · Veteran · Transmission Builder Turned Engineer</p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn">Get In Touch</a>
+            <!-- Update resume.pdf to your real file name if different -->
+            <a href="resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Download Résumé</a>
+        </div>
     </section>
 
     <section id="about">
@@ -498,39 +564,55 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    I'm a full stack developer and computer science student based in the U.S., with a strong focus on
-                    backend engineering, security, and building practical tools that actually ship. I enjoy working
-                    across the stack—from database design and APIs to front-end experiences that feel clean and fast.
+                    I'm a full stack developer and computer science student with a non-traditional background: military
+                    service, years of hands-on work as a transmission builder, and now a deep dive into software
+                    engineering, security, and systems.
                 </p>
                 <p>
-                    Over the last few years, I've built projects ranging from full-stack dashboards on MongoDB and Dash,
-                    to Android apps, Raspberry Pi and embedded systems labs, and macOS utilities written in Swift.
-                    I’m comfortable jumping between web, mobile, and systems work, and I care a lot about clean,
-                    maintainable code.
+                    That mix of experience means I care a lot about tools that work in the real world. I've spent time
+                    diagnosing mechanical failures, tracking down subtle bugs, and building systems that people rely on.
+                    Whether it’s a dashboard, an Android app, or a low-level macOS tool, I’m happiest when I’m solving
+                    practical problems with clean, understandable code.
                 </p>
                 <p>
-                    I also have a background in ethical hacking and penetration testing, which heavily influences how I
-                    approach development: secure by default, privacy-aware, and curious about how things work under the hood.
-                    That curiosity has led me into reverse engineering, OpenGL graphics, reinforcement learning experiments,
-                    and more than a few “let’s see what happens if…” side projects.
+                    My background in ethical hacking and reverse engineering pushes me to think defensively about
+                    everything I build—how it fails, how it can be abused, and how to make it safer by default. I like
+                    blending that mindset with user-focused design so the result feels both robust and approachable.
                 </p>
 
-                <h3 style="margin-top:1.5rem; color:#667eea;">What I'm focused on right now</h3>
+                <h3 style="margin-top:1.5rem; color:#667eea;">What I bring from previous careers</h3>
                 <ul class="about-highlight-list">
-                    <li>Leveling up toward a Senior Backend Engineer path with a strong security mindset.</li>
-                    <li>Building full-stack apps using Node.js, Python, MongoDB, and cloud platforms.</li>
-                    <li>Exploring AI and automation to create useful tools (not just tech demos).</li>
-                    <li>Continuing to refine clean architecture, testing, and documentation habits.</li>
+                    <li>Military discipline, adaptability, and the ability to stay calm when things break unexpectedly.</li>
+                    <li>Hands-on mechanical troubleshooting from transmission building—pattern recognition, fine detail work, and root-cause analysis.</li>
+                    <li>A strong bias toward reliability and maintainability, not just “it runs on my machine.”</li>
+                    <li>Comfort working across layers: hardware, operating systems, backend services, and UI.</li>
                 </ul>
+
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <strong>+ X yrs</strong>
+                        Tech & systems experience  
+                        <!-- Replace X with your real number if you want -->
+                    </div>
+                    <div class="about-stat">
+                        <strong>Multi-domain</strong>
+                        Military · Automotive · Software
+                    </div>
+                    <div class="about-stat">
+                        <strong>Security-minded</strong>
+                        Ethical hacking & reverse engineering background
+                    </div>
+                </div>
             </div>
             <div class="about-card">
                 <h3>Snapshot</h3>
                 <div class="about-meta">
-                    Full Stack Developer · CS Degree (in progress) · Security & Reverse Engineering Enthusiast
+                    Full Stack Developer · Veteran · Former Transmission Builder · Security & Reverse Engineering Enthusiast
                 </div>
                 <p>
-                    I like solving messy, real-world problems: old legacy systems that need love, dashboards for
-                    non-technical users, and small tools that make workflows less painful.
+                    I like solving messy, real-world problems: aging legacy systems, complex data, and tools for
+                    non-technical users. My goal is to grow into a senior backend role where I can own systems end-to-end,
+                    with a strong focus on security and reliability.
                 </p>
                 <div class="about-tags">
                     <span class="about-tag">Node.js & Express</span>
@@ -540,6 +622,8 @@
                     <span class="about-tag">macOS / Swift</span>
                     <span class="about-tag">Raspberry Pi</span>
                     <span class="about-tag">Security & Reverse Engineering</span>
+                    <span class="about-tag">Automotive · Transmissions</span>
+                    <span class="about-tag">Veteran</span>
                 </div>
             </div>
         </div>
@@ -570,7 +654,7 @@
             <div class="project-card">
                 <h3>Travlr Getaways Full Stack Travel Site</h3>
                 <p>
-                    A full stack travel booking experience using the MEAN stack patterns. Includes an admin view for
+                    A full stack travel booking experience using MEAN-style patterns. Includes an admin view for
                     managing trips and a public-facing site with server-rendered pages, dynamic content, and a clean
                     responsive layout designed for both desktop and mobile travelers.
                 </p>
@@ -652,6 +736,7 @@
                     and front-end integration.
                 </p>
             </div>
+
             <div class="experience-item">
                 <h3>Security & Reverse Engineering Enthusiast</h3>
                 <div class="experience-date">Ongoing</div>
@@ -660,6 +745,28 @@
                     This perspective drives a “defensive by design” approach to both code and architecture.
                 </p>
             </div>
+
+            <div class="experience-item">
+                <h3>Automatic Transmission Builder / Rebuilder</h3>
+                <div class="experience-date">Years Here – Years Here</div>
+                <p>
+                    Built, rebuilt, and diagnosed automatic transmissions, working from teardown through final assembly
+                    and testing. Developed strong pattern-recognition skills, attention to detail, and a systematic
+                    approach to troubleshooting complex mechanical systems—skills that map directly into debugging,
+                    performance tuning, and systems design in software.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Military Service – Veteran</h3>
+                <div class="experience-date">Years Here – Years Here</div>
+                <p>
+                    Served in the U.S. military, gaining experience in high-responsibility environments, teamwork under
+                    pressure, and following through on mission-critical tasks. That background shaped how I handle
+                    ownership, communication, and reliability in my engineering work.
+                </p>
+            </div>
+
             <div class="experience-item">
                 <h3>Computer Science Degree – Project Work</h3>
                 <div class="experience-date">Recent Years</div>
@@ -677,6 +784,7 @@
             <h2>Let's Connect</h2>
             <p>I'm always interested in hearing about new projects, roles, and collaborations.</p>
             <div class="contact-links">
+                <!-- Update these with your real info -->
                 <a href="mailto:your.email@example.com">Email</a>
                 <a href="https://github.com/Chrisbridges3" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/christopherbridges3" target="_blank">LinkedIn</a>
@@ -697,6 +805,9 @@
             </form>
         </div>
     </section>
+
+    <!-- Scroll-to-top button -->
+    <button id="scrollTopBtn" aria-label="Scroll to top">↑ Top</button>
 
     <script>
         // Smooth scrolling
@@ -751,6 +862,24 @@
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
             });
         }
+
+        // Scroll-to-top button logic
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
