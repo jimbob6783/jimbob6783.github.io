@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Jeep Runner — a small off-road endless runner built by Chris Bridges.">
+  <title>Jeep Runner | Chris Bridges</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">TAKE A BREAK</p>
+        <h1>Jeep Runner</h1>
+        <p class="sub">Jump rocks, dodge trail hazards, and see how far you can make it.</p>
+      </div>
+      <a class="back" href="index.html">← Back to portfolio</a>
+    </header>
+
+    <section class="game-card" aria-label="Jeep Runner game">
+      <div class="hud">
+        <span>Score <strong id="score">0</strong></span>
+        <span>Best <strong id="best">0</strong></span>
+      </div>
+      <canvas id="game" width="960" height="360" aria-label="Jeep Runner game canvas"></canvas>
+      <div id="overlay" class="overlay">
+        <h2 id="overlayTitle">Ready to hit the trail?</h2>
+        <p id="overlayText">Press Space, ↑, W, click, or tap to jump.</p>
+        <button id="startBtn" type="button">Start Run</button>
+      </div>
+    </section>
+
+    <p class="tip">Desktop: Space / ↑ / W · Mobile: tap the game area</p>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
