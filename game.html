@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="description" content="Jeep Runner — a small off-road endless runner built by Chris Bridges.">
   <title>Jeep Runner | Chris Bridges</title>
-  <link rel="stylesheet" href="game.css?v=4">
+  <link rel="stylesheet" href="game.css?v=5">
 </head>
 <body>
   <main class="game-shell">
@@ -13,7 +13,7 @@
       <div>
         <p class="eyebrow">TAKE A BREAK</p>
         <h1>Jeep Runner</h1>
-        <p class="sub">Hit 2× and 3× launch ramps, clear deep muddy pits, and dodge trail hazards.</p>
+        <p class="sub">Clear mud pits, dodge trail debris, use ramps when they appear, and stay low under hanging hazards.</p>
       </div>
       <a class="back" href="index.html">← Back to portfolio</a>
     </header>
@@ -26,13 +26,13 @@
       <canvas id="game" width="960" height="360" aria-label="Jeep Runner game canvas"></canvas>
       <div id="overlay" class="overlay">
         <h2 id="overlayTitle">Ready to hit the trail?</h2>
-        <p id="overlayText">A 3× ramp and mud pit are guaranteed right at the start. Ramps launch the Jeep automatically; tap or press Space to jump standalone holes.</p>
+        <p id="overlayText">Jump rocks, logs, tires, boulders and mud pits—but do NOT jump into hazards marked STAY LOW.</p>
         <button id="startBtn" type="button">Start Run</button>
       </div>
     </section>
 
-    <p class="tip">Desktop: Space / ↑ / W · Mobile: tap · Gold-edged ramps launch automatically · Brown MUD pits are below the trail</p>
+    <p class="tip">Desktop: Space / ↑ / W · Mobile: tap · Ramps launch automatically · STAY LOW means don't jump</p>
   </main>
-  <script src="game.js?v=4"></script>
+  <script src="game.js?v=5"></script>
 </body>
 </html>
