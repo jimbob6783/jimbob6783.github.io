@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Jeep Runner — a small off-road endless runner built by Chris Bridges.">
+  <meta name="description" content="Jeep Runner — a custom off-road endless runner built by Chris Bridges.">
   <title>Jeep Runner | Chris Bridges</title>
-  <link rel="stylesheet" href="game.css?v=5">
+  <link rel="stylesheet" href="game.css?v=6">
 </head>
 <body>
   <main class="game-shell">
@@ -13,7 +13,7 @@
       <div>
         <p class="eyebrow">TAKE A BREAK</p>
         <h1>Jeep Runner</h1>
-        <p class="sub">Clear mud pits, dodge trail debris, use ramps when they appear, and stay low under hanging hazards.</p>
+        <p class="sub">Clear mud pits, collect trail badges, build combos, control the Jeep in the air, and know when not to jump.</p>
       </div>
       <a class="back" href="index.html">← Back to portfolio</a>
     </header>
@@ -22,17 +22,24 @@
       <div class="hud">
         <span>Score <strong id="score">0</strong></span>
         <span>Best <strong id="best">0</strong></span>
+        <span>Combo <strong id="combo">—</strong></span>
+        <span>Trail <strong id="level">1</strong></span>
+        <span>Badges <strong id="badges">0</strong></span>
+        <button id="soundBtn" class="sound-btn" type="button">🔊 Sound</button>
       </div>
       <canvas id="game" width="960" height="360" aria-label="Jeep Runner game canvas"></canvas>
       <div id="overlay" class="overlay">
         <h2 id="overlayTitle">Ready to hit the trail?</h2>
-        <p id="overlayText">Jump rocks, logs, tires, boulders and mud pits—but do NOT jump into hazards marked STAY LOW.</p>
+        <p id="overlayText">Jump debris and mud, collect gold trail badges, and stay grounded under hazards marked STAY LOW. Use A/D or ←/→ to tilt the Jeep in the air.</p>
         <button id="startBtn" type="button">Start Run</button>
       </div>
     </section>
 
-    <p class="tip">Desktop: Space / ↑ / W · Mobile: tap · Ramps launch automatically · STAY LOW means don't jump</p>
+    <div class="game-notes">
+      <p class="tip"><strong>Jump:</strong> Space / ↑ / W / tap · <strong>Air control:</strong> A/D or ←/→ · <strong>Ramps:</strong> launch automatically</p>
+      <p class="tip"><strong>Gold badges:</strong> +25 · <strong>STAY LOW:</strong> don't jump · Trail speed and difficulty increase as you progress</p>
+    </div>
   </main>
-  <script src="game.js?v=5"></script>
+  <script src="game.js?v=6"></script>
 </body>
 </html>
